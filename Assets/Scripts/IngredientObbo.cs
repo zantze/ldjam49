@@ -6,6 +6,7 @@ public class IngredientObbo : MonoBehaviour
 {
     private bool hasSplashed = false;
     private bool hasBonked = false;
+    private float countdown = 0f;
 
     public AudioClip[] bonks;
     // Start is called before the first frame update
@@ -17,7 +18,12 @@ public class IngredientObbo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hasSplashed)
+        {
+            countdown += Time.deltaTime;
 
+            if (countdown > 1f) Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,10 +41,14 @@ public class IngredientObbo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Concotion conc = other.gameObject.GetComponent<Concotion>();
-        if (conc != null)
+        if (!hasSplashed)
         {
-            conc.Splash(transform.position);
+            Concotion conc = other.gameObject.GetComponent<Concotion>();
+            if (conc != null)
+            {
+                hasSplashed = true;
+                conc.Splash(transform.position);
+            }
         }
     }
 }

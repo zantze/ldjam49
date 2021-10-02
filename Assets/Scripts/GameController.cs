@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class GameController : MonoBehaviour
     public TextLine uiText;
     public Text uiTimer;
     public Text uiScore;
+    public RectMask2D uiMeterMask;
+    private float uiMeterMaskMax = 277f;
+    private float uiMeterMultiplier = 277f / 8f;
 
     public float timePerText = 8f;
     public float currentTime = 0f;
@@ -35,6 +39,8 @@ public class GameController : MonoBehaviour
 
     public float difficultyTimer = 0f;
     public float spawnTimer = 0;
+
+    private bool firstIngredientEneterd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -64,16 +70,21 @@ public class GameController : MonoBehaviour
             difficultyTimer = 0;
         }
 
+        Vector4 mask = uiMeterMask.padding;
+        mask.z = currentTime * uiMeterMultiplier;
+        uiMeterMask.padding = mask;
 
         if (!completed)
         {
-            currentTime += Time.deltaTime;
+            if (firstIngredientEneterd)
+                currentTime += Time.deltaTime;
+
             uiTimer.text = "" + (timePerText -  currentTime);
 
             if (timePerText - currentTime < 0)
             {
                 Debug.Log("Lost game");
-                // do game loss mechanics
+                SceneManager.LoadScene("explosion", LoadSceneMode.Single);
             }
 
             if (Input.anyKeyDown)
@@ -126,6 +137,13 @@ public class GameController : MonoBehaviour
 
     public void FinishIngredient()
     {
+
+        if (!firstIngredientEneterd)
+        {
+            firstIngredientEneterd = true;
+            PlayMusic.current.Play();
+        }
+
         completed = true;
 
         uiTimer.text = "";
