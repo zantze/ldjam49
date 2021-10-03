@@ -156,26 +156,38 @@ public class Adjective
         "gross",
         "nice",
         "funny",
-        "odd"
+        "odd",
+        "old",
+        "dumb",
+        "hard",
+        "soft"
+        
     };
 
     public static string[] mediumAdjectives =
     {
         "tubular",
         "extreme",
-        "overgrown",
         "bubbling",
+        "stranded",
+        "glimmering",
+        "european",
+        "american",
+        "bouncy"
     };
 
     public static string[] hardAdjectives =
     {
+        "overgrown",
         "peculiar",
         "enormous",
         "beautiful",
         "expensive",
         "luxurious",
         "nastiest",
-        "stupendous"
+        "stupendous",
+        "preposterous",
+        "depressed"
     };
 
     public static string PickRandom(string[] list)

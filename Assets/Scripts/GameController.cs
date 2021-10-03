@@ -67,7 +67,9 @@ public class GameController : MonoBehaviour
         Debug.Log(Variables.current.score);
 
 
-        difficultyTimer += Time.deltaTime;
+        if (firstIngredientEneterd)
+            difficultyTimer += Time.deltaTime;
+        
         uiScore.text = "SCORE: " + score;
         spawnTimer += Time.deltaTime;
 
