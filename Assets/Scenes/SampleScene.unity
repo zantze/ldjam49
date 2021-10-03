@@ -3712,10 +3712,10 @@ RectTransform:
   m_Father: {fileID: 433687291}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -92}
-  m_SizeDelta: {x: 1019.7, y: 155.64}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 18, y: -145}
+  m_SizeDelta: {x: 718.79, y: 155.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164943007
 MonoBehaviour:
@@ -5457,7 +5457,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 0
 --- !u!222 &1656885074
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5950,10 +5950,10 @@ RectTransform:
   m_Father: {fileID: 433687291}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -92}
-  m_SizeDelta: {x: 1019.7, y: 155.64}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 18, y: -145}
+  m_SizeDelta: {x: 718.79, y: 155.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790088835
 MonoBehaviour:
@@ -6566,8 +6566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients:
-  - name: test cube
-    plural: test cubes
+  - name: cube
+    plural: cubes
     prefab: {fileID: 152926482108098416, guid: 710b17126295d3b4c9a7040e081e9784, type: 3}
   - name: book
     plural: books
@@ -6639,10 +6639,10 @@ RectTransform:
   m_Father: {fileID: 433687291}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -92}
-  m_SizeDelta: {x: 1019.7, y: 155.64}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 18, y: -145}
+  m_SizeDelta: {x: 718.79, y: 155.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964626737
 MonoBehaviour:
@@ -6677,7 +6677,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TEST CUBE
+  m_Text: 
 --- !u!222 &1964626738
 CanvasRenderer:
   m_ObjectHideFlags: 0

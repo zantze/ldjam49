@@ -31,6 +31,7 @@ public class PlayMusic : MonoBehaviour
         if ((aus.time + dt) >= aus.clip.length )
         {
             aus.clip = loop;
+            aus.loop = true;
             aus.Play();
         }
     }

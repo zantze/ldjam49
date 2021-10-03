@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene("explosion", LoadSceneMode.Single);
             }
 
-            if (Input.anyKeyDown)
+            if (Input.anyKey)
             {
                 string keyPressed = Input.inputString.ToLower();
                 char[] characterArray = keyPressed.ToCharArray();
