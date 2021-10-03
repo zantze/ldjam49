@@ -145,9 +145,9 @@ public class GameController : MonoBehaviour
 
     public void nextIngredient()
     {
-        int currentTimeHandicap = difficulty - 9;
+        int currentTimeHandicap = difficulty - 7;
         if (currentTimeHandicap <= 0) currentTimeHandicap = 0;
-        currentTime = 0 + currentTimeHandicap;
+        currentTime = 0 + (currentTimeHandicap * 1.33f);
         int random = Random.Range(0, IngredientsList.list.ingredients.Count);
         currentIngredient = IngredientsList.list.Get(random);
         completed = false;
