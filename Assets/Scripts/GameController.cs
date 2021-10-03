@@ -28,9 +28,11 @@ public class GameController : MonoBehaviour
     public Text uiScore;
     public RectMask2D uiMeterMask;
     private float uiMeterMaskMax = 277f;
-    private float uiMeterMultiplier = 277f / 8f;
+    private float uiMeterMultiplier = 0f;
 
-    public float timePerText = 8f;
+    private float timePerText;
+    public float timePerTextHard = 7.3f;
+    public float timePerTextEasy = 12f;
     public float currentTime = 0f;
 
     public int difficulty = 0;
@@ -42,15 +44,29 @@ public class GameController : MonoBehaviour
 
     private bool firstIngredientEneterd = false;
 
+    private void Awake()
+    {
+        if (Variables.current == null) new Variables();
+        score = Variables.current.score;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        if (Variables.current.difficulty == Variables.Difficulty.EASY) timePerText = timePerTextEasy;
+        if (Variables.current.difficulty == Variables.Difficulty.HARD) timePerText = timePerTextHard;
+
+
+        uiMeterMultiplier = 277f / timePerText;
         nextIngredient();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Variables.current.score);
+
+
         difficultyTimer += Time.deltaTime;
         uiScore.text = "SCORE: " + score;
         spawnTimer += Time.deltaTime;
@@ -83,7 +99,7 @@ public class GameController : MonoBehaviour
 
             if (timePerText - currentTime < 0)
             {
-                Debug.Log("Lost game");
+                Variables.current.score = score;
                 SceneManager.LoadScene("explosion", LoadSceneMode.Single);
             }
 
@@ -127,7 +143,9 @@ public class GameController : MonoBehaviour
 
     public void nextIngredient()
     {
-        currentTime = 0;
+        int currentTimeHandicap = difficulty - 9;
+        if (currentTimeHandicap <= 0) currentTimeHandicap = 0;
+        currentTime = 0 + currentTimeHandicap;
         int random = Random.Range(0, IngredientsList.list.ingredients.Count);
         currentIngredient = IngredientsList.list.Get(random);
         completed = false;

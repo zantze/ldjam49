@@ -27,23 +27,20 @@ public class Bubble : MonoBehaviour
         scale.y += growSpeed * Time.deltaTime;
         scale.z += growSpeed * Time.deltaTime;
 
-        
-
-
         transform.localScale = scale;
 
         if (!popped && dt > 1.5f)
         {
             popped = true;
             GetComponent<AudioSource>().pitch = 1f;
+            GetComponent<AudioSource>().volume = 0.15f;
             GetComponent<AudioSource>().Play();
             GetComponent<MeshRenderer>().enabled = false;
-            
         }
 
         if (dt > 2f)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
