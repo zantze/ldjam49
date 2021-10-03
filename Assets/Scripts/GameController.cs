@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         difficultyTimer += Time.deltaTime;
-        uiScore.text = "" + score;
+        uiScore.text = "SCORE: " + score;
         spawnTimer += Time.deltaTime;
 
         if (ingredientsToSpawn.Count > 0 && spawnTimer > 0.15f)
@@ -128,7 +128,7 @@ public class GameController : MonoBehaviour
     public void nextIngredient()
     {
         currentTime = 0;
-        int random = Random.Range(0, IngredientsList.list.ingredients.Count - 1);
+        int random = Random.Range(0, IngredientsList.list.ingredients.Count);
         currentIngredient = IngredientsList.list.Get(random);
         completed = false;
         uiText.SetBaseText(currentIngredient.GenerateName(difficulty));
